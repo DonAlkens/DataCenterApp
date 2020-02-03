@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="col-md-12">
+    <div class="breadcrumb">
+        <h4>Employee</h4>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <div class="row">
+        @if (ViewBag.Employee != null)
+        {
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="text-right">
+                            <h5 class="card-title" style="float:left;">Employee Details</h5>
+                            <a href="/employee/edit?emp=@ViewBag.Employee.ID" class="btn btn-sm btn-primary">Edit</a>
+                            <a href="/employee/delete/@ViewBag.Employee.ID" class="btn btn-sm btn-danger">Delete</a>
+                        </div>
+                        <table class="table-bordered table table-responsive">
+                            <tbody>
+                                <tr>
+                                    <th>Fullname</th>
+                                    <td>@ViewBag.Employee.Firstname @ViewBag.Employee.Lastname</td>
+                                </tr>
+                                <tr>
+                                    <th>Email Address</th>
+                                    <td>@ViewBag.Employee.Email</td>
+                                </tr>
+                                <tr>
+                                    <th>Phone Number</th>
+                                    <td>@ViewBag.Employee.PhoneNo</td>
+                                </tr>
+                                <tr>
+                                    <th>Department</th>
+                                    <td>@ViewBag.Employee.department.DepartmentName</td>
+                                </tr>
+                                <tr>
+                                    <th>Supervisor</th>
+                                    <td>@ViewBag.Employee.supervisor.Firstname @ViewBag.Employee.supervisor.Lastname</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="col-md-12">
+                <div class="text-center slick-card">
+                    <span class="alert alert-danger col-md-12">
+                        Hey!, Employee not found in database.
+                    </span>
+
+                    <div class="form-group">
+                        <a class="btn btn-sm btn-secondary" href="/employee/index">Back to list</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

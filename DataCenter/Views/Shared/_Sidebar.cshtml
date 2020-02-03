@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+
+}
+
+<div class="sidebar">
+    <div class="logo-box">
+        <h2 class="logo-text">Data Center</h2>
+    </div>
+
+    <div class="menu-box">
+        <ul class="menu-list">
+            <li>
+                <a href="/Dashboard/Index"> <i class="glyphicon glyphicon-dashboard"></i> Dashboard</a>
+            </li>
+
+            <li>
+                <a href="/Employee/Index"><i class="glyphicon glyphicon-user"></i> Employee</a>
+            </li>
+
+            <li>
+                <a href="/Department/Index"><i class="glyphicon glyphicon-calendar"></i> Department</a>
+            </li>
+
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                {
+                @Html.AntiForgeryToken()
+                    <li>
+                        <a href="javascript:document.getElementById('logoutForm').submit()">
+                            <i class="glyphicon glyphicon-log-out"></i>
+                            Logout
+                        </a>
+                    </li>
+                }
+                
+        </ul>
+    </div>
+</div>

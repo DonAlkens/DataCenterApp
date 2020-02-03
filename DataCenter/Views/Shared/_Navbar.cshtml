@@ -1,0 +1,19 @@
+﻿<div class="custom-navbar">
+    <div class="custom-navbar-content">
+        <div class="text-right">
+            <div class="menu-icon">
+                <i class="glyphicon glyphicon-menu-hamburger"></i>
+            </div>
+                
+            <div class="user-card">
+                @using Microsoft.AspNet.Identity
+                @if (Request.IsAuthenticated)
+                {
+                <span>@User.Identity.GetUserName()</span>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+

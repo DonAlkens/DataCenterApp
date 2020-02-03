@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Employee";
+}
+
+<div class="col-md-12">
+    <div class="breadcrumb">
+        <h4>Employee</h4>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <div class="row">
+        @if(ViewBag.Employees != null)
+        {
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="text-right">
+                            <h5 class="card-title" style="float:left;">Employee List</h5>
+                            <a href="/employee/add" class="btn btn-sm btn-primary">Add new Employee</a>
+                        </div>
+                        <table class="table-bordered table table-responsive">
+                        <thead class="bg-light">
+                            <tr>
+                                <th>#</th>
+                                <th scope="row">Employee Name</th>
+                                <th>Email Address</th>
+                                <th>Department</th>
+                                <th>Salary</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var Employee in ViewBag.Employees)
+                            {
+                                <tr>
+                                    <td>@Employee.ID</td>
+                                    <td scope="row">@Employee.Firstname @Employee.Lastname</td>
+                                    <td>@Employee.Email</td>
+                                    <td>@Employee.department.DepartmentName</td>
+                                    <td>N @Employee.Salary</td>
+                                    <td>
+                                        <a class="btn btn-outline-info btn-sm" href="/Employee/Details/@Employee.ID">View</a>
+                                        <a class="btn btn-outline-secondary btn-sm" href="/Employee/Edit?emp=@Employee.ID">Edit</a>
+                                        <a class="btn btn-outline-danger btn-sm" href="/Employee/Delete/@Employee.ID">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="col-md-12">
+                <div class="text-center slick-card">
+                    <div class="form-group">
+                        <span class="alert alert-info col-md-12">
+                            Hey!, You have no employee in your company yet. Click the button bellow to start adding employees 
+                        </span>
+                    </div>
+                
+                    <div class="form-group">
+                        <a class="btn btn-sm btn-primary" href="/Employee/Add">Add New Employees</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

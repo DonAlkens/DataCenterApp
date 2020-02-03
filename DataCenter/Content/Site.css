@@ -1,24 +1,161 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    background-color: #f0f0f0;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+a, a:hover {
+    text-decoration: none;
+    color: inherit;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+.auto-card {
+    margin: 130px auto;
+    background-color: #ffffff;
+    width: 27%;
+    padding: 20px 27px;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.mb-2 {
+    margin-bottom: 14px;
 }
+
+.mt-100 {
+    margin-top: 100px;
+}
+
+.mt-3 {
+    margin-top: 30px;
+}
+
+.mb-3 {
+    margin-bottom: 30px;
+}
+
+.container {
+    padding: 30px 20px;
+    width: 60% !important;
+    margin: 10px auto;
+    background-color: #fff;
+}
+
+.sidebar {
+    width: 17%;
+    position: fixed;
+    height: 100%;
+    background-color: #0e0c28;
+}
+
+
+@media screen and (max-width: 768px){
+    .sidebar {
+        width: 40% !important;
+        z-index: 3000;
+        margin-left: -40%;
+    }
+}
+
+.sidebar .logo-box {
+    height: 55px;
+    padding: 8px 15px;
+    text-align:center;
+    width: auto;
+    border-bottom: 1px solid #7a80b419;
+}
+
+.sidebar .logo-box .logo-text {
+    color: #7a80b4;
+    padding: 0px;
+    margin:0px;
+    font-family: Candara;
+}
+
+.sidebar .menu-box {
+    margin-top: 30px;
+    padding: 8px 12px;
+    width: auto;
+}
+
+.sidebar .menu-box .menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar .menu-box .menu-list li{
+    padding: 9px 11px;
+    font-size: 16px;
+    color: #fff;
+    font-family: Candara;
+    word-spacing: 10px;
+}
+
+.sidebar .menu-box .menu-list li:hover {
+    background-color: #7a80b440;
+    transition: 0.3s ease-in-out;
+}
+
+.content-wrapper {
+    width: 83%;
+    margin-left: 17%;
+    height: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .content-wrapper {
+        width: 100%;
+        margin-left: 0px;
+    }
+}
+
+.custom-navbar {
+    background-color:#fff; 
+    width: 100%;
+    padding: 8px 10px;
+    height: 55px;
+}
+
+.custom-navbar-content .menu-icon {
+    font-size: 25px;
+    display:inline-block;
+    float:left;
+}
+
+.inner-content {
+    width: auto;
+    padding: 30px 30px;
+}
+
+
+.slick-card {
+    background-color: #fff;
+    padding: 15px;
+}
+
+.slick-card .card-title {
+    font-weight: bold;
+    color: #7a80b4;
+    padding: 0px;
+    margin:0px;
+    font-family: Candara;
+    margin-bottom: 10px;
+}
+
+.slick-card .card-text {
+    font-size: 16px;
+}
+
+.c-btn {
+    border-radius: 0px !important;
+}
+
+.btn-outline-success {
+    color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-outline-success:hover {
+    color: #fff;
+    background-color: #2ec551;
+    border-color: #2ec551;
+}
+
+

@@ -1,0 +1,120 @@
+﻿@model DataCenter.Models.EmployeeModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="col-md-12">
+    <div class="breadcrumb">
+        <h4>Employee</h4>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-7">
+            <div class="slick-card">
+
+                @if(ViewBag.Employee != null)
+                {
+                    <h3 class="card-title">Edit Employee's Information</h3>
+                    <div class="divider"></div>
+                    if (ViewBag.success != null && ViewBag.success == true)
+                    {
+                        <div class="form-group">
+                            <span class="alert alert-success">@ViewBag.Message</span>
+                        </div>
+                    }
+
+                    if (ViewBag.Departments == null)
+                    {
+                        <div class="form-group">
+                            <p class="alert alert-warning">
+                                <i class="glyphicon glyphicon-warning"></i>
+                                You have not add any department yet. Click <a href="/Department/Add" style="color:dodgerblue;">here</a> to add department.
+                            </p>
+                        </div>
+                    }
+
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    <div class="form-box mt-3">
+                        <form action="~/Employee/Edit?emp=@ViewBag.Employee.ID" method="post">
+                            @Html.AntiForgeryToken()
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control" name="Firstname" value="@ViewBag.Employee.Firstname" placeholder="Enter Employee's Firstname" />
+                                        @Html.ValidationMessageFor(model => model.Firstname, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control" name="Lastname" value="@ViewBag.Employee.Lastname" placeholder="Enter Employee's Lastname" />
+                                        @Html.ValidationMessageFor(model => model.Lastname, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control" name="Email" value="@ViewBag.Employee.Email" placeholder="Enter Employee's Email Address" />
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control" name="PhoneNo" value="@ViewBag.Employee.PhoneNo" placeholder="Enter Employee's Phone Number" />
+                                        @Html.ValidationMessageFor(model => model.PhoneNo, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control" name="Salary" value="@ViewBag.Employee.Salary" placeholder="Enter Employee's Salary" />
+                                        @Html.ValidationMessageFor(model => model.Salary, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <select name="DepartmentID" class="form-control">
+                                            <option value="@ViewBag.Employee.department.ID">@ViewBag.Employee.department.DepartmentName</option>
+                                            @if (ViewBag.Departments != null)
+                                            {
+                                                foreach (var Department in ViewBag.Departments)
+                                                {
+                                                    <option value="@Department.ID">@Department.DepartmentName</option>
+                                                }
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group text-right">
+                                <button class="btn btn-sm btn-primary">Save Chnages</button>
+                                <a href="/employee/index" class="btn btn-sm btn-secondary">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                }
+                else
+                {
+                    <div class="form-group">
+                        <p class="alert alert-danger">Employee not Found in Database.</p>
+                    </div>
+                    <div class="form-group text-center">
+                        <a href="/employee/index" class="btn btn-sm btn-secondary">Back To Employee List</a>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+

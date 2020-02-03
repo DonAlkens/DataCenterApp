@@ -1,0 +1,66 @@
+﻿@model DataCenter.Core.Department
+
+@{
+    ViewBag.Title = "Department";
+}
+
+<div class="col-md-12">
+    <div class="breadcrumb">
+        <h4>Department</h4>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <div class="row">
+        @if (ViewBag.Departments != null)
+        {
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="text-right">
+                            <h5 class="card-title" style="float:left;">Department List</h5>
+                            <a href="/department/add" class="btn btn-sm btn-primary">Add new Department</a>
+                        </div>
+                        <table class="table-bordered table table-responsive">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th>#</th>
+                                    <th scope="row">Department Name</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var Department in ViewBag.Departments)
+                                {
+                                    <tr>
+                                        <td>@Department.ID</td>
+                                        <td scope="row">@Department.DepartmentName</td>
+                                        <td>
+                                            <a class="btn btn-outline-secondary btn-sm" href="/Department/Edit?emp=@Department.ID">Edit</a>
+                                            <a class="btn btn-outline-danger btn-sm" href="/Department/Delete/@Department.ID">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="col-md-12">
+                <div class="text-center slick-card">
+                    <span class="alert alert-info col-md-12">
+                        Hey!, You have no employee in your company yet. Click the button bellow to start adding employees
+                    </span>
+
+                    <div class="form-group">
+                        <a class="btn btn-sm btn-primary" href="/Department/Add">Add New Department</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

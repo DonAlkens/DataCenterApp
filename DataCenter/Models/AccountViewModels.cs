@@ -64,6 +64,13 @@ namespace DataCenter.Models
 
     public class RegisterViewModel
     {
+
+        [Required(ErrorMessage = "Firstname is required")]
+        public string Firstname { get; set; }
+
+        [Required(ErrorMessage = "Lastname is required")]
+        public string Lastname { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
