@@ -14,6 +14,12 @@ a, a:hover {
     padding: 20px 27px;
 }
 
+@media screen and (max-width: 768px){
+    .auto-card {
+        width: 70% !important;
+    }
+}
+
 .mb-2 {
     margin-bottom: 14px;
 }

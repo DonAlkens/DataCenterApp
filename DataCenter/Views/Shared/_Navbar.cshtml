@@ -9,7 +9,7 @@
                 @using Microsoft.AspNet.Identity
                 @if (Request.IsAuthenticated)
                 {
-                <span>@User.Identity.GetUserName()</span>
+                <span>Hi! @Session["Name"].ToString()</span>
                 }
             </div>
 

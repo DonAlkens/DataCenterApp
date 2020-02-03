@@ -82,6 +82,7 @@ namespace DataCenter.Controllers
                     var db = new ApplicationDbContext();
                     var user = db.Users.FirstOrDefault(x => x.UserName == model.Email);
                     Session["userID"] = user.Id;
+                    Session["Name"] = user.Firstname + " " + user.Lastname;
 
                     if(returnUrl != null)
                     {
